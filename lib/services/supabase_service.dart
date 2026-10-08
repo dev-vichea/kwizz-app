@@ -13,6 +13,9 @@ class SupabaseService {
 
   Future<void> initialize() async {
     if (_initialized) return;
+    if (!SupabaseConfig.isConfigured) {
+      return;
+    }
     try {
       await Supabase.initialize(
         url: SupabaseConfig.supabaseUrl,
@@ -25,14 +28,24 @@ class SupabaseService {
     }
   }
 
+  SupabaseClient? get _safeClient {
+    try {
+      return Supabase.instance.client;
+    } catch (_) {
+      return null;
+    }
+  }
+
   SupabaseClient get client => Supabase.instance.client;
 
-  User? get currentUser => _initialized ? client.auth.currentUser : null;
+  User? get currentUser => _initialized ? _safeClient?.auth.currentUser : null;
 
   bool get isAuthenticated => currentUser != null;
 
   Stream<AuthState> get authStateChanges =>
-      _initialized ? client.auth.onAuthStateChange : const Stream.empty();
+      _initialized && _safeClient != null
+          ? client.auth.onAuthStateChange
+          : const Stream.empty();
 
   // Authentication
   Future<AuthResponse> signUp({
