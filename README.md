@@ -4,7 +4,7 @@
 
 ---
 
-## 📱 Features & Highlights
+## Features & Highlights
 
 - **Pixel-Accurate UI Design**: Replicated from design mockups featuring:
   - Custom Onboarding Flow with playful illustrations, speech bubbles, and step navigation.
@@ -21,11 +21,11 @@
 - **Supabase Cloud Backend**:
   - Cloud database hosted on Supabase (`profiles` and `quiz_results` tables).
   - Row Level Security (RLS) policies configured for secure client access.
-  - Real-time profile updates: tracks gems (💎), total score, quizzes played, and global rankings.
+  - Real-time profile updates: tracks stars, total score, quizzes played, and global rankings.
   - Email/Password authentication & instant Guest Explorer play mode.
 - **Quiz Gameplay Mechanics**:
   - 20-second per-question countdown timer with warning states.
-  - Streak multipliers (`🔥 Streak bonus`) and speed point calculations.
+  - Streak multipliers (`Streak bonus`) and speed point calculations.
   - In-game lifelines: `50:50` (eliminates 2 wrong answers), `+15s Extra Time`, and `Skip Question`.
   - Instant visual feedback on answer selection (emerald green for correct, soft crimson for incorrect).
 - **Clean Architecture & State Management**:
@@ -34,7 +34,7 @@
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 lib/
@@ -78,7 +78,7 @@ lib/
 
 ---
 
-## 🗄️ Supabase Database Schema
+## Supabase Database Schema
 
 The database is configured with the following tables:
 
@@ -121,7 +121,7 @@ CREATE TABLE public.quiz_results (
 
 ---
 
-## 🚀 Running the Application
+## Running the Application
 
 ### Prerequisites
 - Flutter SDK 3.10+ (tested on Flutter 3.38.4 / Dart 3.10.3)
